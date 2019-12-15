@@ -15,7 +15,7 @@ This is a simple solution to crawl web from a given Http url.
 
 # High Level Solution Design
 
-![](docs/design_overview.png)
+![](docs/design_overview.PNG)
 
 # How to run
 Gradle is required to build the solution. It is assumed gradle is available. Run the following gradle command
