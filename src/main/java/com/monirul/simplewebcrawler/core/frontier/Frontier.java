@@ -4,6 +4,9 @@ package com.monirul.simplewebcrawler.core.frontier;
 import com.monirul.simplewebcrawler.core.CrawlItem;
 import lombok.Data;
 
+/**
+ * Maintain crawling history, urls to crawl .
+ */
 @Data
 public class Frontier {
 

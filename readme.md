@@ -1,13 +1,13 @@
 # Getting Started
 This is a simple solution to crawl web from a given Http url.
 
-# Use cases
+#Use cases
 * Service will start crawling from a given url.
 * It will crawl children links and further i.e. children of children links.
 * It will crawl pages until it reaches max link to visit or there is no more links to visit.
 * For each page it will create a node containing url, title and children nodes.
 
-# Scope of this solution
+#Scope of this solution
 * It will only visit absolute urls eg. Http://www.test.com. It will ignore anchor and internal urls. 
 * All tracking information (urlToVisit, visitedURLs) are kept in memory but can be easily extended to use any caching (memchache/redis) or Database.
 * API Security is not applied 
@@ -15,7 +15,7 @@ This is a simple solution to crawl web from a given Http url.
 
 # High Level Solution Design
 
-
+![](docs/design_overview.png)
 
 # How to run
 Gradle is required to build the solution. It is assumed gradle is available. Run the following gradle command

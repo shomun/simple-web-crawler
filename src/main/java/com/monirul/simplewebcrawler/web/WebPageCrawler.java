@@ -15,6 +15,10 @@ import org.jeasy.flows.workflow.SequentialFlow;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Crawls a single page  based on given URL, find the children urls
+ * It is implemented based on Unit Of Work (or chain of responsibility) pattern
+ */
 public class WebPageCrawler implements Crawler{
 
 

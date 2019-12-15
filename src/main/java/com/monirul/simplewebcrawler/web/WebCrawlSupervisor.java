@@ -1,10 +1,16 @@
 package com.monirul.simplewebcrawler.web;
 
-import com.monirul.simplewebcrawler.core.*;
+import com.monirul.simplewebcrawler.core.CrawlItem;
+import com.monirul.simplewebcrawler.core.CrawlSupervisor;
+import com.monirul.simplewebcrawler.core.Node;
+import com.monirul.simplewebcrawler.core.ResultProcessor;
 import com.monirul.simplewebcrawler.core.frontier.Frontier;
 
-import java.util.concurrent.ForkJoinPool;
 
+/**
+ * Supervise a crawl request. It takes a root URL and start crawling by creating a WebPageCrawling task
+ * and mange the flow to create new task when more URLs are available
+ */
 public class WebCrawlSupervisor implements CrawlSupervisor {
 
     private CrawlItem rootCrawlItem;
@@ -13,6 +19,12 @@ public class WebCrawlSupervisor implements CrawlSupervisor {
     private ResultProcessor<Node> resultProcessor;
 
 
+    /**
+     *
+     * @param rootUrl
+     * @param frontier
+     * @param resultProcessor
+     */
     public WebCrawlSupervisor(String rootUrl, Frontier frontier, WebCrawlResultProcessor resultProcessor) {
         this.rootCrawlItem = new CrawlItem(rootUrl);
         this.frontier = frontier;
@@ -20,9 +32,10 @@ public class WebCrawlSupervisor implements CrawlSupervisor {
     }
 
 
-
-
-
+    /**
+     * Start a crawl task
+     * @param crawlItem
+     */
     private void doCrawl(CrawlItem crawlItem) {
         WebPageCrawler crawler = new WebPageCrawler(crawlItem,frontier);
         try {
@@ -36,6 +49,9 @@ public class WebCrawlSupervisor implements CrawlSupervisor {
 
     }
 
+    /**
+     * manage crawl tasks, get new URLs from queue to process and also skip visiting URLs for already visited URLs
+     */
     private void crawlTask() {
         CrawlItem crawlItem = null;
 

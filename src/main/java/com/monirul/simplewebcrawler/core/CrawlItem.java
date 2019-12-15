@@ -5,6 +5,9 @@ import org.apache.commons.lang3.StringUtils;
 
 import java.util.Objects;
 
+/**
+ * Contains required information to perform crawling
+ */
 @Data
 public class CrawlItem {
 

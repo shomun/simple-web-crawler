@@ -10,7 +10,12 @@ import org.jgrapht.traverse.DepthFirstIterator;
 
 import java.util.Iterator;
 
-public class WebCrawlResultProcessor<N> implements ResultProcessor<Node> {
+
+/**
+ * A Result processor to output the urls graph in tree representation as node
+ * @param <N>
+ */
+public class WebCrawlResultProcessor implements ResultProcessor<Node> {
 
     private CrawlTracker crawlTracker;
 

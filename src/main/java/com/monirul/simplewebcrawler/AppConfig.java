@@ -13,8 +13,8 @@ public class AppConfig {
 
 
     @Bean("webCrawlResultProcessor")
-    public WebCrawlResultProcessor<Node> getWebCrawlResultProcessor(CrawlTracker crawlTracker){
-        return new WebCrawlResultProcessor<Node>(crawlTracker);
+    public WebCrawlResultProcessor getWebCrawlResultProcessor(CrawlTracker crawlTracker){
+        return new WebCrawlResultProcessor(crawlTracker);
     }
 
     @Bean("frontier")
