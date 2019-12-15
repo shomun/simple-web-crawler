@@ -8,7 +8,7 @@ This is a simple solution to crawl web from a given Http url.
 * For each page it will create a node containing url, title and children nodes.
 
 #Scope of this solution
-* It will only visit absolute urls eg. Http://www.test.com. It will ignore anchor and internal urls. 
+* It will only visit absolute urls eg. Http://www.test.com. It will ignore anchor, internal urls and others. 
 * All tracking information (urlToVisit, visitedURLs) are kept in memory but can be easily extended to use any caching (memchache/redis) or Database.
 * API Security is not applied 
 
@@ -27,11 +27,15 @@ it will build an executable jar at /build/libs folder. Run the jar as follows,
 java -jar simple-web-crawler-0.0.1-SNAPSHOT
 ```
 
-Make a HTTP POST request with json body at http://localhost:8090/crawl?url=https://crawltest1.s3-ap-southeast-2.amazonaws.com/a.html&maxlinks=50
-
+Make a HTTP POST request with json body at
+```
+http://localhost:8090/crawl?url=https://crawltest1.s3-ap-southeast-2.amazonaws.com/a.html&maxlinks=50
+```
 
 # TODO
 * Support other kinds of links and page title tags
+* Add Security fucntion through security interceptor. 
+* Make the solution more configurable (eg. what tools to choose for CrawlTracker or URLQueue)
 * Need to add more unit/functional test.
 
 
